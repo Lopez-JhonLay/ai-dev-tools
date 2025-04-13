@@ -31,5 +31,19 @@ export const login = async (user: TUserCredentials) => {
     user.password
   );
 
-  return userCredential.user;
+  const loggedinUser = userCredential.user;
+
+  if (!loggedinUser.emailVerified) {
+    await signOut(auth);
+
+    throw new Error(
+      "Please check your email for verification before logging in."
+    );
+  }
+
+  return loggedinUser;
+};
+
+export const logout = async () => {
+  await signOut(auth);
 };

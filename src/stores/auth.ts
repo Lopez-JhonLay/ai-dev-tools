@@ -10,6 +10,7 @@ export const useAuthStore = defineStore("auth", () => {
   onAuthStateChanged(auth, (firebaseUser) => {
     if (firebaseUser) {
       user.value = firebaseUser;
+      console.log(user.value);
       isLoggedIn.value = !!firebaseUser;
     } else {
       user.value = null;
