@@ -15,8 +15,6 @@ export const signup = async (user: TUserCredentials) => {
     user.password
   );
 
-  console.log("User object:", userCredential.user);
-
   try {
     await sendEmailVerification(userCredential.user);
   } catch (e) {
@@ -24,4 +22,14 @@ export const signup = async (user: TUserCredentials) => {
   }
 
   return userCredential;
+};
+
+export const login = async (user: TUserCredentials) => {
+  const userCredential = await signInWithEmailAndPassword(
+    auth,
+    user.email,
+    user.password
+  );
+
+  return userCredential.user;
 };

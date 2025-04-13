@@ -120,7 +120,7 @@
             ></path>
           </g>
         </svg>
-        Login with Google
+        Sign up with Google
       </button>
     </div>
   </div>
@@ -170,6 +170,7 @@ const handleSignup = async (e: Event) => {
     router.push("/login");
   } catch (err) {
     error.value = (err as Error).message || "Signup failed. Please try again.";
+
     showToast(error.value, "error");
   } finally {
     isLoading.value = false;
