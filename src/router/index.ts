@@ -28,9 +28,9 @@ const router = createRouter({
       path: "/chat",
       name: "chat",
       component: ChatView,
-      meta: {
-        requiresAuth: true,
-      },
+      // meta: {
+      //   requiresAuth: true,
+      // },
     },
   ],
 });
